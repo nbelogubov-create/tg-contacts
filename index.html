@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контактная информация | Telegram-канал</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            width: 100%;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header i {
+            font-size: 48px;
+            color: #0088cc;
+            margin-bottom: 15px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .header h1 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .info-item {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #0088cc;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .info-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 136, 204, 0.2);
+        }
+
+        .info-item i {
+            font-size: 24px;
+            color: #0088cc;
+            margin-bottom: 15px;
+        }
+
+        .info-label {
+            font-size: 14px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .info-value {
+            font-size: 20px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .tg-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            background: linear-gradient(135deg, #0088cc 0%, #006699 100%);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 15px;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 0 auto;
+            width: fit-content;
+            box-shadow: 0 10px 20px rgba(0, 136, 204, 0.3);
+        }
+
+        .tg-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 136, 204, 0.4);
+            background: linear-gradient(135deg, #0099e6 0%, #0077b3 100%);
+        }
+
+        .tg-button i {
+            font-size: 24px;
+        }
+
+        .qr-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            width: 100%;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            animation: fadeIn 0.8s ease-out 0.3s both;
+        }
+
+        .qr-section h3 {
+            color: #333;
+            margin-bottom: 25px;
+            font-size: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .qr-container {
+            display: inline-block;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 2px dashed #0088cc;
+        }
+
+        .qr-hint {
+            margin-top: 20px;
+            color: #666;
+            font-size: 16px;
+            font-style: italic;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 20px;
+            opacity: 0.8;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .card, .qr-section {
+                padding: 25px;
+            }
+            
+            .header h1 {
+                font-size: 24px;
+            }
+            
+            .info-value {
+                font-size: 18px;
+            }
+            
+            .tg-button {
+                padding: 15px 30px;
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .card, .qr-section {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="header">
+                <i class="fas fa-user-circle"></i>
+                <h1>Контактная информация</h1>
+                <p style="color: #666;">Все данные для связи в одном месте</p>
+            </div>
+            
+            <div class="info-grid">
+                <div class="info-item">
+                    <i class="fas fa-user-tie"></i>
+                    <div class="info-label">Фамилия Имя Отчество</div>
+                    <div class="info-value" id="fio">Иванов Иван Иванович</div>
+                </div>
+                
+                <div class="info-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div class="info-label">Контактный телефон</div>
+                    <div class="info-value" id="phone">+7 (999) 123-45-67</div>
+                </div>
+            </div>
+            
+            <a href="https://t.me/ваш_канал" 
+               class="tg-button" 
+               id="tg-link"
+               target="_blank">
+                <i class="fab fa-telegram-plane"></i>
+                <span id="tg-text">Перейти в Telegram-канал</span>
+            </a>
+        </div>
+        
+        <div class="qr-section">
+            <h3><i class="fas fa-qrcode"></i> QR-код для быстрого доступа</h3>
+            <div class="qr-container">
+                <div id="qrcode"></div>
+            </div>
+            <p class="qr-hint">Отсканируйте код для сохранения контакта</p>
+        </div>
+        
+        <div class="footer">
+            <p>© 2024 Контактная информация. Все права защищены.</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <script>
+        // Получаем параметры из URL
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        // Устанавливаем значения или используем значения по умолчанию
+        const data = {
+            fio: urlParams.get('fio') || 'Иванов Иван Иванович',
+            phone: urlParams.get('phone') || '+7 (999) 123-45-67',
+            tg: urlParams.get('tg') || 'https://t.me/ваш_канал'
+        };
+        
+        // Обновляем данные на странице
+        document.getElementById('fio').textContent = data.fio;
+        document.getElementById('phone').textContent = data.phone;
+        document.getElementById('tg-link').href = data.tg;
+        
+        // Форматируем текст для кнопки Telegram
+        const tgUsername = data.tg.split('/').pop();
+        document.getElementById('tg-text').textContent = `Перейти в @${tgUsername}`;
+        
+        // Генерация QR-кода с красивой рамкой
+        const qrSize = 220;
+        const qrOptions = {
+            width: qrSize,
+            height: qrSize,
+            colorDark: "#0088cc",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        };
+        
+        // Создаем контейнер для QR-кода
+        const qrContainer = document.getElementById('qrcode');
+        
+        // Генерируем QR-код
+        QRCode.toCanvas(qrContainer, window.location.href, qrOptions, function(error, canvas) {
+            if (error) {
+                console.error(error);
+                qrContainer.innerHTML = '<p style="color: #ff4444;">Ошибка генерации QR-кода</p>';
+                return;
+            }
+            
+            // Добавляем стили к canvas
+            canvas.style.borderRadius = '10px';
+            canvas.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+            
+            // Добавляем логотип Telegram поверх QR-кода
+            const ctx = canvas.getContext('2d');
+            
+            // Создаем иконку Telegram
+            const iconSize = qrSize * 0.2;
+            const iconX = (qrSize - iconSize) / 2;
+            const iconY = (qrSize - iconSize) / 2;
+            
+            // Рисуем круг для иконки
+            ctx.beginPath();
+            ctx.arc(iconX + iconSize/2, iconY + iconSize/2, iconSize/2 + 2, 0, 2 * Math.PI);
+            ctx.fillStyle = '#ffffff';
+            ctx.fill();
+            
+            // Добавляем иконку Telegram (упрощенная версия)
+            ctx.fillStyle = '#0088cc';
+            ctx.beginPath();
+            ctx.arc(iconX + iconSize/2, iconY + iconSize/2, iconSize/2 - 2, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // Буква "T" для Telegram
+            ctx.fillStyle = '#ffffff';
+            ctx.font = `bold ${iconSize * 0.6}px Arial`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('T', iconX + iconSize/2, iconY + iconSize/2);
+        });
+        
+        // Добавляем эффект при загрузке
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
