@@ -245,7 +245,9 @@
                     QR-код для быстрого доступа
                 </div>
                 <div class="qr-container">
-                    <div id="qrcode"></div>
+                    <div id="qrcode">
+                        <!-- QR код появится здесь -->
+                    </div>
                 </div>
                 <p style="margin-top: 15px; color: #6c757d; font-size: 14px;">
                     Отсканируйте код, чтобы перейти в канал
@@ -259,35 +261,22 @@
         </div>
     </div>
 
-    <!-- СКРИПТ ДЛЯ QR КОДА -->
-    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <!-- САМЫЙ ПРОСТОЙ СПОСОБ С QR КОДОМ -->
     <script>
-        // ПРОСТОЙ И РАБОЧИЙ QR КОД
-        document.addEventListener('DOMContentLoaded', function() {
-            // Ссылка на Telegram
-            const telegramLink = "https://t.me/carpenter54";
-            
-            // Создаем QR код
-            const qrContainer = document.getElementById('qrcode');
-            qrContainer.innerHTML = '';
-            
-            QRCode.toCanvas(qrContainer, telegramLink, {
-                width: 200,
-                height: 200,
-                colorDark: "#0088cc",
-                colorLight: "#ffffff",
-                correctLevel: QRCode.CorrectLevel.H
-            }, function(error, canvas) {
-                if (error) {
-                    console.error(error);
-                    qrContainer.innerHTML = '<p style="color: #dc3545;">QR-код не сгенерирован</p>';
-                    return;
-                }
-                
-                // Делаем края скругленными
-                canvas.style.borderRadius = '10px';
-            });
-        });
+        // Ссылка на Telegram
+        const telegramLink = "https://t.me/carpenter54";
+        
+        // Создаем изображение QR кода
+        const qrImage = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(telegramLink)}&color=0088cc&bgcolor=ffffff`;
+        
+        // Вставляем QR код на страницу
+        document.getElementById('qrcode').innerHTML = `
+            <img src="${qrImage}" 
+                 alt="QR Code для Telegram канала @carpenter54" 
+                 style="border-radius: 10px; width: 200px; height: 200px; display: block; margin: 0 auto;">
+        `;
+        
+        console.log("QR код загружен для:", telegramLink);
     </script>
 </body>
 </html>
