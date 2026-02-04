@@ -3,24 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Дерягин Иван | Telegram-канал carpenter54</title>
+    <title>Дерягин Иван | carpenter54</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
     <style>
-        /* ===== ОСНОВНЫЕ СТИЛИ ===== */
-        :root {
-            --primary: #0088cc;
-            --primary-dark: #006699;
-            --secondary: #667eea;
-            --accent: #764ba2;
-            --dark: #1a1a2e;
-            --light: #f8f9ff;
-            --gradient: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
-            --shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
-        }
-
+        /* ОСНОВНЫЕ СТИЛИ */
         * {
             margin: 0;
             padding: 0;
@@ -28,443 +14,152 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
-            color: var(--dark);
-            position: relative;
-            overflow-x: hidden;
+            color: #333;
         }
 
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(118, 75, 162, 0.1) 0%, transparent 50%);
-            z-index: -1;
-        }
-
-        /* ===== АНИМАЦИИ ===== */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 136, 204, 0.7); }
-            70% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(0, 136, 204, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 136, 204, 0); }
-        }
-
-        @keyframes shimmer {
-            0% { background-position: -1000px 0; }
-            100% { background-position: 1000px 0; }
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        /* ===== КОНТЕЙНЕР ===== */
+        /* КОНТЕЙНЕР */
         .container {
             width: 100%;
-            max-width: 1200px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            animation: fadeInUp 0.8s ease-out;
+            max-width: 500px;
+            margin: 0 auto;
         }
 
-        @media (max-width: 992px) {
-            .container {
-                grid-template-columns: 1fr;
-                max-width: 600px;
-            }
-        }
-
-        /* ===== ЛЕВАЯ КОЛОНКА (ИНФО) ===== */
-        .info-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-radius: 30px;
-            padding: 50px;
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+        /* КАРТОЧКА */
+        .card {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        .info-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 6px;
-            background: var(--gradient);
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
+        /* АВАТАР */
         .avatar {
-            width: 140px;
-            height: 140px;
+            width: 120px;
+            height: 120px;
             margin: 0 auto 25px;
-            background: var(--gradient);
+            background: linear-gradient(135deg, #667eea, #764ba2);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 60px;
-            animation: float 6s ease-in-out infinite;
-            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.4);
-            position: relative;
+            font-size: 50px;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
         }
 
-        .avatar::after {
-            content: '';
-            position: absolute;
-            width: 160px;
-            height: 160px;
-            border: 2px dashed var(--primary);
-            border-radius: 50%;
-            animation: rotate 20s linear infinite;
-        }
-
-        .badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: var(--primary);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            animation: pulse 2s infinite;
-        }
-
+        /* ЗАГОЛОВОК */
         .name {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 36px;
-            font-weight: 800;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 28px;
+            font-weight: 700;
             margin-bottom: 10px;
+            color: #2d3436;
         }
 
         .title {
-            color: #666;
-            font-size: 18px;
-            margin-bottom: 30px;
-        }
-
-        /* ===== ИНФО БЛОКИ ===== */
-        .info-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
+            color: #636e72;
             margin-bottom: 40px;
+            font-size: 16px;
         }
 
-        .info-item {
-            background: linear-gradient(135deg, rgba(248, 249, 255, 0.9) 0%, rgba(238, 241, 255, 0.9) 100%);
-            padding: 25px;
-            border-radius: 20px;
-            border-left: 5px solid var(--primary);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .info-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 136, 204, 0.2);
-        }
-
-        .info-item i {
-            font-size: 28px;
-            color: var(--primary);
-            margin-bottom: 15px;
-            display: inline-block;
+        /* ИНФО БЛОКИ */
+        .info-block {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            text-align: left;
+            border-left: 4px solid #0088cc;
         }
 
         .info-label {
             font-size: 13px;
-            color: #888;
+            color: #6c757d;
             text-transform: uppercase;
-            letter-spacing: 1.2px;
+            letter-spacing: 1px;
             margin-bottom: 8px;
             font-weight: 600;
         }
 
         .info-value {
-            font-size: 22px;
-            color: var(--dark);
-            font-weight: 600;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        /* ===== КНОПКА TELEGRAM ===== */
-        .tg-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            background: var(--gradient);
-            color: white;
-            padding: 22px 40px;
-            border-radius: 18px;
-            text-decoration: none;
             font-size: 20px;
             font-weight: 600;
-            transition: var(--transition);
-            margin: 0 auto;
-            width: 100%;
-            max-width: 400px;
-            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
-            position: relative;
-            overflow: hidden;
+            color: #2d3436;
         }
 
-        .tg-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.6s;
-        }
-
-        .tg-button:hover::before {
-            left: 100%;
-        }
-
-        .tg-button:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.5);
-        }
-
-        /* ===== ПРАВАЯ КОЛОНКА (QR) ===== */
-        .qr-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-radius: 30px;
-            padding: 50px;
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+        /* КНОПКА TELEGRAM */
+        .tg-btn {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            text-align: center;
+            justify-content: center;
+            gap: 12px;
+            background: #0088cc;
+            color: white;
+            padding: 18px 30px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 30px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0, 136, 204, 0.3);
+        }
+
+        .tg-btn:hover {
+            background: #006699;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 136, 204, 0.4);
+        }
+
+        /* QR КОД */
+        .qr-section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 30px;
         }
 
         .qr-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 30px;
-            color: var(--dark);
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #2d3436;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
 
         .qr-container {
-            position: relative;
-            padding: 25px;
             background: white;
-            border-radius: 25px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
-            margin-bottom: 40px;
-            border: 2px solid transparent;
-            background-clip: padding-box;
-            animation: pulse 3s infinite;
+            padding: 20px;
+            border-radius: 16px;
+            display: inline-block;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
         }
 
-        .qr-container::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: var(--gradient);
-            border-radius: 27px;
-            z-index: -1;
-            animation: shimmer 3s infinite linear;
-        }
-
-        #qrcode canvas {
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        /* ===== АКЦИИ С QR ===== */
-        .qr-actions {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            width: 100%;
-            max-width: 500px;
-        }
-
-        .action-btn {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            padding: 18px;
-            background: var(--light);
-            border: none;
-            border-radius: 15px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            color: var(--dark);
-        }
-
-        .action-btn i {
-            font-size: 22px;
-            color: var(--primary);
-        }
-
-        .action-btn:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-3px);
-        }
-
-        .action-btn:hover i {
-            color: white;
-        }
-
-        /* ===== ДОПОЛНИТЕЛЬНАЯ ИНФО ===== */
-        .qr-info {
-            margin-top: 40px;
-            color: #666;
-            font-size: 16px;
-            line-height: 1.6;
-            max-width: 400px;
-        }
-
-        /* ===== СОЦИАЛЬНЫЕ ИКОНКИ ===== */
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 40px;
-            padding-top: 40px;
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        .social-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            font-size: 22px;
-            transition: var(--transition);
-            text-decoration: none;
-        }
-
-        .social-icon:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-5px);
-        }
-
-        /* ===== ФУТЕР ===== */
+        /* ФУТЕР */
         .footer {
-            text-align: center;
-            margin-top: 50px;
-            color: #888;
+            margin-top: 30px;
+            color: #adb5bd;
             font-size: 14px;
-            grid-column: 1 / -1;
         }
 
-        /* ===== МОБИЛЬНАЯ АДАПТАЦИЯ ===== */
-        @media (max-width: 768px) {
-            body {
-                padding: 15px;
-            }
-            
-            .container {
-                gap: 25px;
-            }
-            
-            .info-card, .qr-card {
-                padding: 30px;
-                border-radius: 25px;
-            }
-            
-            .avatar {
-                width: 120px;
-                height: 120px;
-                font-size: 50px;
-            }
-            
-            .avatar::after {
-                width: 140px;
-                height: 140px;
-            }
-            
-            .name {
-                font-size: 28px;
-            }
-            
-            .info-value {
-                font-size: 20px;
-            }
-            
-            .tg-button {
-                padding: 18px 30px;
-                font-size: 18px;
-            }
-            
-            .qr-actions {
-                grid-template-columns: 1fr;
-            }
-            
-            .social-icons {
-                flex-wrap: wrap;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .info-card, .qr-card {
-                padding: 25px;
+        /* МОБИЛЬНАЯ АДАПТАЦИЯ */
+        @media (max-width: 600px) {
+            .card {
+                padding: 30px 25px;
+                border-radius: 20px;
             }
             
             .avatar {
@@ -473,377 +168,124 @@
                 font-size: 40px;
             }
             
-            .avatar::after {
-                width: 120px;
-                height: 120px;
-            }
-            
             .name {
                 font-size: 24px;
             }
             
-            .title {
+            .info-value {
+                font-size: 18px;
+            }
+            
+            .tg-btn {
+                padding: 16px 25px;
                 font-size: 16px;
             }
             
-            .qr-title {
-                font-size: 22px;
+            .qr-section {
+                padding: 25px 20px;
             }
         }
 
-        /* ===== ПРОГРЕСС БАР ===== */
-        .loading-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 3px;
-            background: var(--gradient);
-            z-index: 1000;
-            transition: width 0.3s ease;
-        }
-
-        /* ===== ДЕКОРАТИВНЫЕ ЭЛЕМЕНТЫ ===== */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .particle {
-            position: absolute;
-            background: var(--primary);
-            border-radius: 50%;
-            opacity: 0.1;
+        @media (max-width: 400px) {
+            body {
+                padding: 15px;
+            }
+            
+            .card {
+                padding: 25px 20px;
+            }
+            
+            .avatar {
+                width: 80px;
+                height: 80px;
+                font-size: 35px;
+            }
+            
+            .name {
+                font-size: 22px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="loading-bar" id="loadingBar"></div>
-    
     <div class="container">
-        <!-- Левая колонка - Информация -->
-        <div class="info-card">
-            <div class="badge">ONLINE</div>
-            
-            <div class="header">
-                <div class="avatar">
-                    <i class="fas fa-user-tie"></i>
-                </div>
-                <h1 class="name" id="name">Дерягин Иван Анатольевич</h1>
-                <p class="title" id="title">Основатель Telegram-канала carpenter54</p>
+        <div class="card">
+            <!-- АВАТАР -->
+            <div class="avatar">
+                <i class="fas fa-user"></i>
             </div>
             
-            <div class="info-grid">
-                <div class="info-item">
-                    <i class="fas fa-id-card"></i>
-                    <div class="info-label">Контактное лицо</div>
-                    <div class="info-value" id="fio">Дерягин Иван Анатольевич</div>
-                </div>
-                
-                <div class="info-item">
-                    <i class="fas fa-mobile-alt"></i>
-                    <div class="info-label">Мобильный телефон</div>
-                    <div class="info-value" id="phone">+7 (905) 952-21-29</div>
-                </div>
-                
-                <div class="info-item">
-                    <i class="fas fa-clock"></i>
-                    <div class="info-label">Доступность</div>
-                    <div class="info-value">24/7 в Telegram</div>
-                </div>
+            <!-- ИМЯ -->
+            <h1 class="name">Дерягин Иван Анатольевич</h1>
+            <p class="title">Telegram: @carpenter54</p>
+            
+            <!-- ИНФОРМАЦИЯ -->
+            <div class="info-block">
+                <div class="info-label">Контактный телефон</div>
+                <div class="info-value">+7 (905) 952-21-29</div>
             </div>
             
+            <div class="info-block">
+                <div class="info-label">Telegram-канал</div>
+                <div class="info-value">@carpenter54</div>
+            </div>
+            
+            <!-- КНОПКА TELEGRAM -->
             <a href="https://t.me/carpenter54" 
-               class="tg-button" 
-               id="tg-link"
+               class="tg-btn" 
                target="_blank">
                 <i class="fab fa-telegram-plane"></i>
-                <span id="tg-text">Перейти в канал @carpenter54</span>
+                Перейти в Telegram
             </a>
-        </div>
-        
-        <!-- Правая колонка - QR код -->
-        <div class="qr-card">
-            <h2 class="qr-title"><i class="fas fa-qrcode"></i> Быстрый доступ</h2>
             
-            <div class="qr-container">
-                <div id="qrcode"></div>
+            <!-- QR КОД -->
+            <div class="qr-section">
+                <div class="qr-title">
+                    <i class="fas fa-qrcode"></i>
+                    QR-код для быстрого доступа
+                </div>
+                <div class="qr-container">
+                    <div id="qrcode"></div>
+                </div>
+                <p style="margin-top: 15px; color: #6c757d; font-size: 14px;">
+                    Отсканируйте код, чтобы перейти в канал
+                </p>
             </div>
             
-            <div class="qr-actions">
-                <button class="action-btn" onclick="downloadQR()">
-                    <i class="fas fa-download"></i>
-                    <span>Скачать QR</span>
-                </button>
-                <button class="action-btn" onclick="shareContact()">
-                    <i class="fas fa-share-alt"></i>
-                    <span>Поделиться</span>
-                </button>
-                <button class="action-btn" onclick="addToContacts()">
-                    <i class="fas fa-address-book"></i>
-                    <span>В контакты</span>
-                </button>
+            <!-- ФУТЕР -->
+            <div class="footer">
+                © 2024 | Все права защищены
             </div>
-            
-            <div class="qr-info">
-                <p><i class="fas fa-info-circle"></i> Отсканируйте QR-код камерой телефона для мгновенного перехода в Telegram-канал</p>
-            </div>
-            
-            <div class="social-icons">
-                <a href="https://t.me/carpenter54" class="social-icon" target="_blank">
-                    <i class="fab fa-telegram"></i>
-                </a>
-                <a href="tel:+79059522129" class="social-icon">
-                    <i class="fas fa-phone"></i>
-                </a>
-                <a href="viber://chat?number=%2B79059522129" class="social-icon">
-                    <i class="fab fa-viber"></i>
-                </a>
-                <a href="whatsapp://send?phone=79059522129" class="social-icon">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-            </div>
-        </div>
-        
-        <div class="footer">
-            <p>© 2024 Дерягин Иван Анатольевич. Все права защищены.</p>
-            <p>Связь через Telegram: @carpenter54</p>
         </div>
     </div>
 
+    <!-- СКРИПТ ДЛЯ QR КОДА -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
     <script>
-        // Конфигурация
-        const CONFIG = {
-            telegram: "https://t.me/carpenter54",
-            phone: "+79059522129",
-            name: "Дерягин Иван Анатольевич",
-            title: "Основатель Telegram-канала carpenter54"
-        };
-
-        // Анимация загрузки
-        window.addEventListener('load', function() {
-            document.getElementById('loadingBar').style.width = '100%';
-            setTimeout(() => {
-                document.getElementById('loadingBar').style.opacity = '0';
-            }, 500);
-        });
-
-        // Генерация QR-кода
-        function generateQRCode() {
+        // ПРОСТОЙ И РАБОЧИЙ QR КОД
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ссылка на Telegram
+            const telegramLink = "https://t.me/carpenter54";
+            
+            // Создаем QR код
             const qrContainer = document.getElementById('qrcode');
             qrContainer.innerHTML = '';
             
-            QRCode.toCanvas(qrContainer, CONFIG.telegram, {
-                width: 280,
-                height: 280,
+            QRCode.toCanvas(qrContainer, telegramLink, {
+                width: 200,
+                height: 200,
                 colorDark: "#0088cc",
                 colorLight: "#ffffff",
                 correctLevel: QRCode.CorrectLevel.H
             }, function(error, canvas) {
                 if (error) {
                     console.error(error);
-                    showError();
+                    qrContainer.innerHTML = '<p style="color: #dc3545;">QR-код не сгенерирован</p>';
                     return;
                 }
                 
-                // Стилизация canvas
-                canvas.style.borderRadius = '15px';
-                canvas.style.boxShadow = '0 15px 40px rgba(0, 0, 0, 0.2)';
-                canvas.style.animation = 'fadeInUp 0.8s ease-out';
-                
-                // Добавление логотипа
-                addLogoToQR(canvas);
-            });
-        }
-
-        // Добавление логотипа на QR-код
-        function addLogoToQR(canvas) {
-            const ctx = canvas.getContext('2d');
-            const logoSize = 60;
-            const logoX = (canvas.width - logoSize) / 2;
-            const logoY = (canvas.height - logoSize) / 2;
-            
-            // Фон для логотипа
-            ctx.beginPath();
-            ctx.arc(logoX + logoSize/2, logoY + logoSize/2, logoSize/2 + 5, 0, Math.PI * 2);
-            ctx.fillStyle = '#ffffff';
-            ctx.fill();
-            
-            // Telegram логотип
-            ctx.beginPath();
-            ctx.arc(logoX + logoSize/2, logoY + logoSize/2, logoSize/2, 0, Math.PI * 2);
-            ctx.fillStyle = '#0088cc';
-            ctx.fill();
-            
-            // Буква T
-            ctx.fillStyle = '#ffffff';
-            ctx.font = `bold ${logoSize * 0.6}px 'Montserrat', sans-serif`;
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            ctx.fillText('T', logoX + logoSize/2, logoY + logoSize/2);
-        }
-
-        // Скачать QR-код
-        function downloadQR() {
-            const canvas = document.querySelector('#qrcode canvas');
-            if (!canvas) {
-                alert('QR-код еще не загружен');
-                return;
-            }
-            
-            const link = document.createElement('a');
-            link.download = `telegram-${CONFIG.name.split(' ')[0]}.png`;
-            link.href = canvas.toDataURL('image/png');
-            link.click();
-            
-            // Анимация кнопки
-            event.target.classList.add('clicked');
-            setTimeout(() => {
-                event.target.classList.remove('clicked');
-            }, 300);
-        }
-
-        // Поделиться контактом
-        function shareContact() {
-            const shareData = {
-                title: `Контакт: ${CONFIG.name}`,
-                text: `Телефон: ${formatPhone(CONFIG.phone)}\nTelegram: ${CONFIG.telegram}`,
-                url: window.location.href
-            };
-            
-            if (navigator.share) {
-                navigator.share(shareData);
-            } else {
-                navigator.clipboard.writeText(`${CONFIG.name}\nТелефон: ${CONFIG.phone}\nTeleграм: ${CONFIG.telegram}`);
-                showNotification('Контакты скопированы в буфер обмена!');
-            }
-        }
-
-        // Добавить в контакты
-        function addToContacts() {
-            const vCard = `BEGIN:VCARD
-VERSION:3.0
-FN:${CONFIG.name}
-TEL;TYPE=CELL:${CONFIG.phone.replace(/\D/g, '')}
-URL:${CONFIG.telegram}
-END:VCARD`;
-            
-            const blob = new Blob([vCard], { type: 'text/vcard' });
-            const url = URL.createObjectURL(blob);
-            
-            const link = document.createElement('a');
-            link.href = url;
-            link.download = `${CONFIG.name.split(' ')[0]}.vcf`;
-            link.click();
-            
-            showNotification('vCard контакт скачан');
-        }
-
-        // Форматирование телефона
-        function formatPhone(phone) {
-            return phone.replace(/(\d{1})(\d{3})(\d{3})(\d{2})(\d{2})/, '+$1 ($2) $3-$4-$5');
-        }
-
-        // Уведомление
-        function showNotification(message) {
-            const notification = document.createElement('div');
-            notification.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: var(--primary);
-                color: white;
-                padding: 15px 25px;
-                border-radius: 10px;
-                box-shadow: var(--shadow);
-                z-index: 1000;
-                animation: fadeInUp 0.3s ease-out;
-            `;
-            notification.textContent = message;
-            document.body.appendChild(notification);
-            
-            setTimeout(() => {
-                notification.remove();
-            }, 3000);
-        }
-
-        // Ошибка
-        function showError() {
-            const qrContainer = document.getElementById('qrcode');
-            qrContainer.innerHTML = `
-                <div style="text-align: center; padding: 40px;">
-                    <i class="fas fa-exclamation-triangle" style="font-size: 50px; color: #ff4444; margin-bottom: 20px;"></i>
-                    <p style="color: #ff4444; font-size: 18px;">Ошибка генерации QR-кода</p>
-                    <button onclick="generateQRCode()" style="
-                        margin-top: 20px;
-                        padding: 10px 20px;
-                        background: var(--primary);
-                        color: white;
-                        border: none;
-                        border-radius: 10px;
-                        cursor: pointer;
-                    ">
-                        Повторить
-                    </button>
-                </div>
-            `;
-        }
-
-        // Создание частиц
-        function createParticles() {
-            const particlesContainer = document.createElement('div');
-            particlesContainer.className = 'particles';
-            document.body.appendChild(particlesContainer);
-            
-            for (let i = 0; i < 20; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                
-                const size = Math.random() * 20 + 10;
-                const x = Math.random() * 100;
-                const y = Math.random() * 100;
-                const duration = Math.random() * 20 + 20;
-                
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                particle.style.left = `${x}vw`;
-                particle.style.top = `${y}vh`;
-                particle.style.animation = `float ${duration}s infinite ease-in-out`;
-                particle.style.animationDelay = `${Math.random() * 5}s`;
-                
-                particlesContainer.appendChild(particle);
-            }
-        }
-
-        // Инициализация
-        document.addEventListener('DOMContentLoaded', function() {
-            // Установка данных
-            document.getElementById('name').textContent = CONFIG.name;
-            document.getElementById('fio').textContent = CONFIG.name;
-            document.getElementById('phone').textContent = formatPhone(CONFIG.phone);
-            document.getElementById('title').textContent = CONFIG.title;
-            document.getElementById('tg-text').textContent = `Перейти в канал @${CONFIG.telegram.split('/').pop()}`;
-            
-            // Генерация QR-кода
-            setTimeout(generateQRCode, 500);
-            
-            // Создание частиц
-            createParticles();
-            
-            // Плавная прокрутка
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
-                    }
-                });
+                // Делаем края скругленными
+                canvas.style.borderRadius = '10px';
             });
         });
     </script>
